@@ -1,0 +1,45 @@
+# sample_idx 238
+# scan_type circular_scanning
+# common_az_deg 112.50801767675031
+# target_az_deg 112.50801767675031
+# target_el_deg 0.0
+# boresight_start_az_deg 112.50801767675031
+# boresight_el_deg 0.0
+# step_deg 3.028545048851468
+# noise_std 0.004
+# gain_min 1.4469846487045288
+# gain_max 13.32289981842041
+# pulse_train_count 21
+# source_pulse_train_count 119
+# capture_shape begin_end_captured
+# post_process_mode split_end
+# source_full_length 119
+# observed_length 21
+# captured_block_count 1
+# captured_blocks_1based 99-119
+# captured_positions_1based 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119
+# missing_total_count 98
+# kept_ratio 0.17647058823529413
+# source_sample_idx 148
+index gain
+98 1.44698465
+99 1.67480540
+100 1.90196550
+101 2.13147426
+102 2.34005952
+103 2.53723454
+104 2.70346212
+105 2.80901670
+106 2.90791559
+107 3.01768589
+108 3.19208455
+109 3.42387891
+110 3.96231866
+111 4.65431547
+112 5.64540434
+113 6.95101261
+114 8.38576221
+115 9.96582603
+116 11.40885067
+117 12.67053699
+118 13.32289982

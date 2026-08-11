@@ -1,0 +1,48 @@
+# sample_idx 474
+# scan_type conical_scanning
+# target_az_deg 82.12464909624116
+# target_el_deg 48.29222557504672
+# cone_total_angle_deg 2.316187736071183
+# cone_half_angle_deg 1.1580938680355914
+# pulse_train_count 50
+# step_deg 7.2
+# noise_std 0.004
+# gain_min 13.461419105529785
+# gain_max 13.598784446716309
+# gain_mean 13.534222602844238
+# post_process_mode split_segment
+# source_full_length 50
+# source_start_idx 25
+# source_end_idx_exclusive 50
+# observed_length 25
+# missing_before_count 25
+# missing_after_count 0
+# missing_total_count 25
+# kept_ratio 0.5
+# split_part 1
+index gain
+25 13.46613026
+26 13.46624374
+27 13.46923923
+28 13.48721409
+29 13.49823189
+30 13.50069046
+31 13.52027607
+32 13.53792667
+33 13.59404373
+34 13.58891964
+35 13.59530640
+36 13.59251308
+37 13.59699440
+38 13.59878445
+39 13.59538460
+40 13.59196091
+41 13.59303951
+42 13.59182549
+43 13.53568649
+44 13.52438068
+45 13.50371265
+46 13.49130630
+47 13.48800087
+48 13.46141911
+49 13.46633339

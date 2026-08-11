@@ -1,0 +1,62 @@
+# sample_idx 1132
+# scan_type raster_scanning
+# cut_mode True
+# target_az_deg 224.29806761343585
+# target_el_raw_0_360_deg 299.8249289366192
+# target_el_deg_physical -60.17507106338081
+# scanning_area_deg 20.0
+# num_steps_az 9
+# num_steps_el 6
+# full_length 54
+# max_positions 36
+# observed_length 36
+# noise_std 0.004
+# gain_min 9.234405517578125
+# gain_max 13.565179824829102
+# base_cut_mode True
+# post_process_mode unchanged
+# source_full_length 36
+# source_start_idx 0
+# source_end_idx_exclusive 36
+# missing_before_count 0
+# missing_after_count 0
+# missing_total_count 0
+# kept_ratio 1.0
+# split_part None
+index gain
+0 9.23440552
+1 10.06547165
+2 10.89252472
+3 11.21633720
+4 11.53081322
+5 11.21457100
+6 10.90378857
+7 10.06752300
+8 9.24036503
+9 10.15176868
+10 11.36844730
+11 12.05845928
+12 12.72912979
+13 12.79150391
+14 12.72008133
+15 12.06105328
+16 11.36395550
+17 10.14736271
+18 10.67074203
+19 11.90979290
+20 12.70497799
+21 13.33756161
+22 13.49115276
+23 13.34943008
+24 12.70157337
+25 11.89488220
+26 10.66623497
+27 10.71831608
+28 11.90639114
+29 12.77626610
+30 13.34329319
+31 13.56517982
+32 13.34312153
+33 12.77962875
+34 11.89898396
+35 10.73453140
