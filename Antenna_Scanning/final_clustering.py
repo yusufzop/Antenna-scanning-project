@@ -10,15 +10,15 @@ import pandas as pd
 # 1) PATH AYARLARI
 # ============================================================
 
-FEATURE_DIR = r"C:\Users\Bogazici\Desktop\senaryolar\senaryo 5\Darbe Dizi özellikleri"
+FEATURE_DIR = r"C:\Users\Bogazici\Desktop\senaryolar\senaryo 8\Darbe Dizi özellikleri"
 
-SCAN_DIR = r"C:\Users\Bogazici\Desktop\senaryolar\senaryo 5\antenna_scanning"
+SCAN_DIR = r"C:\Users\Bogazici\Desktop\senaryolar\senaryo 8\antenna_scanning"
 
-OUTPUT_DIR = r"C:\Users\Bogazici\Desktop\senaryolar\scan_tour_clustering_outputs5"
+OUTPUT_DIR = r"C:\Users\Bogazici\Desktop\senaryolar\scan_tour_clustering_outputs8"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-SCANNING_EMITTER_IDS = [0,5,8]
+SCANNING_EMITTER_IDS = [0,2,4,5,6,8]
 
 
 # ============================================================
@@ -140,6 +140,13 @@ def numeric_similarity(a, b, tol):
         return 0.0
     d = abs(float(a) - float(b))
     return math.exp(-d / max(tol, 1e-9))
+
+
+def fc_band(fc):
+    """Return the hard 10,000-unit frequency band used for clustering."""
+    if pd.isna(fc):
+        return np.nan
+    return math.floor(float(fc) / 10000.0)
 
 
 def sigmoid(x):
@@ -372,6 +379,7 @@ class OnlineCluster:
         self.operation_mode_id = row["operation_mode_id"]
         self.modulation = row["modulation"]
         self.pri_mod_type = row["pri_mod_type"]
+        self.fc_band = fc_band(row["fc"])
 
         self.members = []
         self.frame_times = []
@@ -390,6 +398,12 @@ class OnlineCluster:
     def add(self, row):
         t = row["frame_time"]
         a = row["amplitude"]
+
+        # If the cluster was born with a missing Fc, lock its band as soon as a
+        # member with a valid Fc arrives.
+        row_fc_band = fc_band(row["fc"])
+        if pd.isna(self.fc_band) and not pd.isna(row_fc_band):
+            self.fc_band = row_fc_band
 
         if self.last_time is not None and not pd.isna(t):
             gap = float(t) - float(self.last_time)
@@ -501,6 +515,16 @@ class OnlineCluster:
         tarama_idx yok.
         """
         if self.is_dead:
+            return -1.0
+
+        # Hard constraint: Fc values in different 10,000-unit bands can never
+        # belong to the same cluster. Bands are [0, 10000), [10000, 20000), ...
+        row_fc_band = fc_band(row["fc"])
+        if (
+            not pd.isna(row_fc_band)
+            and not pd.isna(self.fc_band)
+            and row_fc_band != self.fc_band
+        ):
             return -1.0
 
         pw_c = self.recent_numeric_centroid(df, "pw")
@@ -847,4 +871,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
