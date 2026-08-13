@@ -2,7 +2,7 @@ import numpy as np
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from emitter_class import Emitter
+    from Emitter_class import Emitter
 # ----------------------------------------------------------------------
 # 1. PRI dizisi:
 # ----------------------------------------------------------------------
